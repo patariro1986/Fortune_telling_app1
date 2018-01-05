@@ -19,7 +19,7 @@
         android:text="Please push ”See my future” of the bottom then you will be able to see your fortune-telling result" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/send_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/textview2"
