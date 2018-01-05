@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textview1"
-        android:text="Please push ”See my future” of the bottom then you will be able to see your fortune-telling result" />
+        android:text="Test" />
 
     <Button
         android:id="@+id/button1"
@@ -35,3 +36,4 @@
         ads:adUnitId="@string/banner_ad_unit_id" />
 
 </RelativeLayout>
+
