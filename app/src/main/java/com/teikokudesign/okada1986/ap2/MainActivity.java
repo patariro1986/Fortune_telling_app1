@@ -3,18 +3,24 @@ package com.teikokudesign.okada1986.ap2;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
+import android.widget.TextView;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    // Remove the below line after defining your own ad unit ID.
-    private static final String TOAST_TEXT = "Test ads are being shown. "
-            + "To show live ads, replace the ad unit ID in res/values/strings.xml with your own ad unit ID.";
 
 
     @Override
@@ -32,28 +38,85 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setScreenMain(){
-        setContentView(R.layout.activity_main);
 
-        Button sendButton = findViewById(R.id.send_button);
-        sendButton.setOnClickListener(new View.OnClickListener() {
+        final TextView textview1 = (TextView) findViewById(R.id.textview1);
+        final TextView textview2 = (TextView) findViewById(R.id.textview2);
+        final TextView textview3 = (TextView) findViewById(R.id.textview3);
+        final TextView textview4 = (TextView) findViewById(R.id.textview4);
+        final TextView textview5 = (TextView) findViewById(R.id.textview5);
+        final TextView textview6 = (TextView) findViewById(R.id.textview6);
+        final TextView textview7 = (TextView) findViewById(R.id.textview7);
+
+        Button showResultButton = (Button)findViewById(R.id.send_button);
+
+        textview1.setText("Welcome to the Witch's House");
+        textview2.setText("Please push ”See my future” of the bottom then you will be able to see your fortune-telling result");
+        textview3.setText("");
+        textview4.setText("");
+        textview5.setText("");
+        textview6.setText("");
+        textview7.setText("");
+        showResultButton.setText("See my future");
+        //イベント登録
+        showResultButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                setScreenSub();
+            public void onClick(View view) {
+                try
+                {
+                    textview6.setText("うんこ");
+                    //Read CSV data.
+                    AssetManager assetManager = getResources().getAssets();
+
+                    InputStream inputStream = assetManager.open("data.csv");
+                    InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+
+                    BufferedReader bufferReader = new BufferedReader(inputStreamReader);
+
+                    String line;
+                    String messageText="";
+                    while ((line = bufferReader.readLine()) != null) {
+                        //カンマ区切りで１つづつ配列に入れる
+                        String[] RowData = line.split(",");
+                        messageText=messageText+getRandomWords(RowData);
+                    }
+
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
             }
         });
     }
-
-    private void setScreenSub(){
-        setContentView(R.layout.activity_sub);
-
-        Button returnButton = findViewById(R.id.return_button);
-        returnButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setScreenMain();
-            }
-        });
+    //call then get Random stars. It means your luck level.
+    public String getRandomStars(){
+        Random rnd = new Random();
+        int ran = rnd.nextInt(5);
+        String stars;
+        switch (ran) {
+            case 0:  stars = "*";
+                break;
+            case 1:  stars = "**";
+                break;
+            case 2:  stars = "***";
+                break;
+            case 3:  stars = "****";
+                break;
+            case 4:  stars = "*****";
+                break;
+            default: stars = "Invalid number";
+                break;
+        }
+        return stars;
     }
+    public String getRandomWords(String args[]){
+        Random rnd = new Random();
+        int ran = rnd.nextInt(args.length);
+
+        return args[ran];
+
+    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

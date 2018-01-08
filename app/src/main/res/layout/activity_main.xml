@@ -9,21 +9,50 @@
         android:id="@+id/textview1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to the Witch's House" />
+        android:text="XXXX" />
 
     <TextView
-        android:id="@+id/textview2"
+    android:id="@+id/textview2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/textview1"
+    android:text="XXXX" />
+    <TextView
+        android:id="@+id/textview3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textview1"
-        android:text="Please push ”See my future” of the bottom then you will be able to see your fortune-telling result" />
-
+        android:layout_below="@id/textview2"
+        android:text="XXXX" />
+    <TextView
+        android:id="@+id/textview4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview3"
+        android:text="XXXX" />
+    <TextView
+        android:id="@+id/textview5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview4"
+        android:text="XXXX" />
+    <TextView
+        android:id="@+id/textview6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview5"
+        android:text="XXXX" />
+    <TextView
+        android:id="@+id/textview7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textview6"
+        android:text="XXXX" />
     <Button
         android:id="@+id/send_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textview2"
-        android:text="See my future"/>
+        android:layout_below="@id/textview7"
+        android:text="YYYY"/>
     <!-- view for AdMob Banner Ad -->
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
