@@ -6,9 +6,11 @@ import com.google.android.gms.ads.AdView;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -61,12 +63,22 @@ public class MainActivity extends AppCompatActivity {
         showResultButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //Change text
+                textview1.setText("*** Today's your fortune. ***");
+                textview2.setText("Economic fortune: "+ getRandomStars());
+                textview3.setText("Good health: "+ getRandomStars());
+                textview4.setText("Better luck: "+ getRandomStars());
+                textview5.setText("The words of the witch.");
+                textview7.setText("There shall not be found among you anyone who burns his son or his daughter as an offering, anyone who practices divination or tells fortunes or interprets omens, or a sorcerer. by Deuteronomy 18:10");
+
+
+
                 try
                 {
-                    textview6.setText("うんこ");
+
                     //Read CSV data.
                     AssetManager assetManager = getResources().getAssets();
-
                     InputStream inputStream = assetManager.open("data.csv");
                     InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
 
@@ -77,8 +89,9 @@ public class MainActivity extends AppCompatActivity {
                     while ((line = bufferReader.readLine()) != null) {
                         //カンマ区切りで１つづつ配列に入れる
                         String[] RowData = line.split(",");
-                        messageText=messageText+getRandomWords(RowData);
+                        messageText=messageText+getRandomWords(RowData)+" ";
                     }
+                    textview6.setText(messageText);
 
                 }
                 catch (IOException e)
