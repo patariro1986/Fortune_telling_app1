@@ -6,11 +6,9 @@ import com.google.android.gms.ads.AdView;
 import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -18,8 +16,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -72,7 +68,11 @@ public class MainActivity extends AppCompatActivity {
                 textview5.setText("The words of the witch.");
                 textview7.setText("There shall not be found among you anyone who burns his son or his daughter as an offering, anyone who practices divination or tells fortunes or interprets omens, or a sorcerer. by Deuteronomy 18:10");
 
-
+                //Text size
+                textview2.setTextSize(25);
+                textview3.setTextSize(25);
+                textview4.setTextSize(25);
+                textview6.setTextSize(18);
 
                 try
                 {
